@@ -5,6 +5,11 @@ require './lib/sportdb/market/version.rb'
 ## NB: plugin (hoe-manifest) not required; just used for future testing/development
 Hoe::plugin :manifest   # more options for manifests (in the future; not yet)
 
+###########
+#### NB: if you try this script at home
+#    you need to create a (symbolic) link to the sport.db-market fixtures
+#     e.g. use ln -s ../sport.db-market  data  or similar
+
 Hoe.spec 'sportdb-market' do
   
   self.version = SportDB::Market::VERSION
@@ -41,8 +46,8 @@ namespace :dev do
   SPORT_DB_PATH = "#{BUILD_DIR}/sport.db"
 
   DB_CONFIG = {
-    adapter:  'sqlite3',
-    database:  SPORT_DB_PATH
+    :adapter   =>  'sqlite3',
+    :database  =>  SPORT_DB_PATH
   }
 
   directory BUILD_DIR

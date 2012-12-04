@@ -39,7 +39,8 @@ module SportDB::Market
      'at/2012_13/bl',
      'at/2012_13/cup',
      'cl/2012_13/cl',
-     'euro/2012']
+    ## 'euro/2012'
+    ]
   end
 
   def self.load_all
@@ -53,8 +54,8 @@ module SportDB::Market
      ['tipp3',     'at.cup.2012/13',   'at/2012_13/cup_tipp3'],
      ['betathome', 'cl.2012/13',       'cl/2012_13/cl_betathome'],
      ['tipp3',     'cl.2012/13',       'cl/2012_13/cl_tipp3'],
-     ['tipico',    'euro.2012',        'euro/2012_tipico'],
-     ['tipp3',     'euro.2012',        'euro/2012_tipp3' ],
+  ##   ['tipico',    'euro.2012',        'euro/2012_tipico'],
+  ##   ['tipp3',     'euro.2012',        'euro/2012_tipp3' ],
      ['tipp3',     'world.quali.euro.2012/13', 'world/quali_tipp3']]
   end
 
