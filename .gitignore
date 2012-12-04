@@ -29,3 +29,9 @@ doc/
 data
 data/
 
+##############
+# ignore build folder for testing fixture loading etc.
+
+build
+build/
+
