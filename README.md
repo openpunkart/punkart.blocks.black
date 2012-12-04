@@ -1,4 +1,23 @@
-sport.db.ruby-market
-====================
+# sportdb-market
 
-sportdb-market gem - Open Sports Database (sport.db) Plugin for Market Quotes (Odds, etc)
+sportdb plugin for market quotes (odds, etc)
+
+* [geraldb.github.com/sport.db](http://geraldb.github.com/sport.db)
+
+
+## Usage
+
+TBD
+
+
+## Install
+
+Just install the gem:
+
+    $ gem install sportdb-market
+
+
+## License
+
+The `sportdb-market` scripts are dedicated to the public domain.
+Use it as you please with no restrictions whatsoever.

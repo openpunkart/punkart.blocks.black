@@ -16,3 +16,16 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+
+#############
+# ignore komodo project files
+
+*.kpf
+
+###########
+# ignore linked data folder (from world.db) do NOT duplicate/checkin
+
+data
+data/
+
