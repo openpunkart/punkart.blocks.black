@@ -12,7 +12,7 @@ class Loader
   attr_reader :include_path
   
   def initialize( include_path )
-    @include_path
+    @include_path = include_path
   end
 
   def load( name ) # load from gem (built-in)

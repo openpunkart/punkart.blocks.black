@@ -14,13 +14,16 @@ class Reader
   attr_reader :include_path
   
   def initialize( include_path )
-    @include_path
+    @include_path = include_path
   end
 
   def load( service_key, event_key, name )
     path = "#{@include_path}/#{name}.txt"
 
     puts "*** parsing data '#{name}' (#{path})..."
+
+    ### todo/fix: use classify  (from string)
+    SportDb.lang.lang = SportDb.lang.classify_file( path )
 
     reader = LineReader.new( path )
 
