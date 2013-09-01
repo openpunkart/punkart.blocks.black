@@ -1,6 +1,7 @@
-## NB: just use namespace SportDB::Models (not SportDB::Models::Market)
 
-module SportDB::Models
+## NB: just use namespace SportDb::Models (not SportDb::Models::Market)
+
+module SportDb::Models
 
 class Quote < ActiveRecord::Base
     
@@ -29,7 +30,7 @@ class Quote < ActiveRecord::Base
     end # each games
   end
 
-    
+
 end  # class Quote
 
-end  # module SportDB::Models
+end  # module SportDb::Models

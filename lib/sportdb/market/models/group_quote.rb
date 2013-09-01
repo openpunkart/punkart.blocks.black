@@ -1,7 +1,7 @@
 
-## NB: just use namespace SportDB::Models (not SportDB::Models::Market)
+# NB: just use namespace SportDb::Models (not SportDb::Models::Market)
 
-module SportDB::Models
+module SportDb::Models
 
 class GroupQuote < ActiveRecord::Base
   
@@ -23,4 +23,4 @@ class GroupQuote < ActiveRecord::Base
   
 end  # class GroupQuote
 
-end  # module SportDB::Models
+end  # module SportDb::Models

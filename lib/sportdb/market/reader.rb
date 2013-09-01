@@ -1,44 +1,32 @@
 
-module SportDB::Market
+module SportDb::Market
 
 ### load quotes from plain text files
 
 class Reader
 
+  include LogUtils::Logging
+
 ## make models available in sportdb module by default with namespace
 #  e.g. lets you use Team instead of Models::Team 
-  include SportDB::Models
+  include SportDb::Models
+
+  attr_reader :include_path
   
-  
-  def initialize
-    @logger = Logger.new(STDOUT)
-    @logger.level = Logger::INFO
+  def initialize( include_path )
+    @include_path
   end
 
-  attr_reader :logger
-
-  def load_with_include_path( service_key, event_key, name, include_path )  # load from file system
-    path = "#{include_path}/#{name}.txt"
+  def load( service_key, event_key, name )
+    path = "#{@include_path}/#{name}.txt"
 
     puts "*** parsing data '#{name}' (#{path})..."
 
-    reader = LineReader.new( logger, path )
-    
-    load_worker( service_key, event_key, reader )
-    
-    Prop.create!( key: "db.#{fixture_name_to_prop_key(name)}.version", value: "file.txt.#{File.mtime(path).strftime('%Y.%m.%d')}" )
-  end
+    reader = LineReader.new( path )
 
-  def load_builtin( service_key, event_key, name ) # load from gem (built-in)
-    path = "#{SportDB::Market.data_path}/#{name}.txt"
-
-    puts "*** parsing data '#{name}' (#{path})..."
-
-    reader = LineReader.new( logger, path )
-    
     load_worker( service_key, event_key, reader )
 
-    Prop.create!( key: "db.#{fixture_name_to_prop_key(name)}.version", value: "sport.market.txt.#{SportDB::Market::VERSION}" )
+    ## Prop.create!( key: "db.#{fixture_name_to_prop_key(name)}.version", value: "file.txt.#{File.mtime(path).strftime('%Y.%m.%d')}" )
   end
 
 private
@@ -62,7 +50,7 @@ private
   end   # method load
 
 
-  include SportDB::FixtureHelpers
+  include SportDb::FixtureHelpers
 
 
   def find_quotes!( line )
@@ -173,4 +161,4 @@ private
 
 end # class Reader
 
-end # module SportDB::Market
+end # module SportDb::Market

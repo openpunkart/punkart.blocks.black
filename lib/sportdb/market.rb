@@ -43,8 +43,8 @@ module SportDb::Market
     ]
   end
 
-  def self.load_all
-    load( fixtures_rb )
+  def self.load_all( include_path )
+    load( fixtures_rb, include_path )
   end
 
   def self.fixtures_txt
@@ -59,28 +59,28 @@ module SportDb::Market
      ['tipp3',     'world.quali.europe.2014', 'world/quali_tipp3']]
   end
 
-  def self.read_all
-    read( fixtures_txt )
+  def self.read_all( include_path )
+    read( fixtures_txt, include_path )
   end
 
 
   # load built-in (that is, bundled within the gem) named seeds
   # - pass in an array of seed names e.g. [ 'cl/teams', 'cl/2012_13/cl' ] etc.
 
-  def self.load( ary )
-    loader = Loader.new
+  def self.load( ary, include_path )
+    loader = Loader.new( include_path )
     ary.each do |name|
-      loader.load_builtin( name )
+      loader.load( name )
     end
   end
 
   # load built-in (that is, bundled within the gem) named plain text seeds
   # - pass in an array of pairs of event/seed names e.g. [['at.2012/13', 'at/2012_13/bl'], ['cl.2012/13', 'cl/2012_13/cl']] etc.
 
-  def self.read( ary )
-    reader = Reader.new
+  def self.read( ary, include_path )
+    reader = Reader.new( include_path )
     ary.each do |rec|
-      reader.load_builtin( rec[0], rec[1], rec[2] ) # service_key, event_key, name
+      reader.load( rec[0], rec[1], rec[2] ) # service_key, event_key, name
     end
   end
 

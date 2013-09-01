@@ -1,7 +1,7 @@
 
-## NB: just use namespace SportDB::Models (not SportDB::Models::Market)
+# NB: just use namespace SportDb::Models (not SportDb::Models::Market)
 
-module SportDB::Models
+module SportDb::Models
 
 class EventQuote < ActiveRecord::Base
   
@@ -24,4 +24,4 @@ class EventQuote < ActiveRecord::Base
 
 end  # class EventQuote
 
-end  # module SportDB::Models
+end  # module SportDb::Models

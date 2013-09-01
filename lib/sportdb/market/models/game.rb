@@ -1,10 +1,10 @@
 
-## NB: just use namespace SportDB::Models (not SportDB::Models::Market)
+# NB: just use namespace SportDb::Models (not SportDb::Models::Market)
 
-module SportDB::Models
+module SportDb::Models
 
 ################################
-## extend Game w/ quotes etc.
+# extend Game w/ quotes etc.
 
 class Game
   
@@ -12,4 +12,4 @@ class Game
    
 end  # class Game
 
-end  # module SportDB::Models
+end  # module SportDb::Models
