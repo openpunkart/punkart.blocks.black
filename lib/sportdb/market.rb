@@ -14,7 +14,7 @@ require 'sportdb/market/loader'
 require 'sportdb/market/reader'
 
 
-module SportDB::Market
+module SportDb::Market
 
   def self.banner
     "sportdb-market #{VERSION} on Ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE}) [#{RUBY_PLATFORM}]"
@@ -31,9 +31,9 @@ module SportDB::Market
   end
   
   def self.create
-    CreateDB.up
+    CreateDb.up
   end
-  
+
   def self.fixtures_rb  # all builtin ruby fixtures; helper for covenience
     ['services',
      'at/2012_13/bl',
@@ -56,7 +56,7 @@ module SportDB::Market
      ['tipp3',     'cl.2012/13',       'cl/2012_13/cl_tipp3'],
   ##   ['tipico',    'euro.2012',        'euro/2012_tipico'],
   ##   ['tipp3',     'euro.2012',        'euro/2012_tipp3' ],
-     ['tipp3',     'world.quali.euro.2012/13', 'world/quali_tipp3']]
+     ['tipp3',     'world.quali.europe.2014', 'world/quali_tipp3']]
   end
 
   def self.read_all
@@ -89,7 +89,7 @@ module SportDB::Market
     
     ## make models available in sportdb module by default with namespace
     #  e.g. lets you use Team instead of Models::Team 
-    include SportDB::Models
+    include SportDb::Models
 
     def run( args=[] )
       # for now delete all tables
@@ -108,8 +108,8 @@ module SportDB::Market
     Deleter.new.run
   end # method delete!
 
-end  # module SportDB::Market
+end  # module SportDb::Market
 
 
 ## say hello
-puts SportDB::Market.banner
+puts SportDb::Market.banner

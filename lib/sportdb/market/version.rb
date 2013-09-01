@@ -1,6 +1,6 @@
 
-module SportDB ; end    # forward reference (for hoe require)
+module SportDb ; end    # forward reference (for hoe require)
 
-module SportDB::Market
-  VERSION = '0.3.0'
+module SportDb::Market
+  VERSION = '0.4.0'
 end

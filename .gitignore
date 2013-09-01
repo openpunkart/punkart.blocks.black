@@ -18,17 +18,6 @@ _yardoc
 doc/
 
 
-#############
-# ignore komodo project files
-
-*.kpf
-
-###########
-# ignore linked data folder (from world.db) do NOT duplicate/checkin
-
-data
-data/
-
 ##############
 # ignore build folder for testing fixture loading etc.
 

@@ -1,12 +1,12 @@
 
-module SportDB::Market
+module SportDb::Market
 
 
-class CreateDB
+class CreateDb
 
 ## make models available in sportdb module by default with namespace
 #  e.g. lets you use Team instead of Models::Team 
-  include SportDB::Models
+  include SportDb::Models
 
 
   def self.up
@@ -49,11 +49,11 @@ end
 
     end # block Schema.define
 
-    Prop.create!( key: 'db.schema.sport.market.version', value: SportDB::Market::VERSION )
+    Prop.create!( key: 'db.schema.sport.market.version', value: SportDb::Market::VERSION )
 
   end # method self.up
 
-end # class CreateDB
+end # class CreateDb
 
 
-end # module SportDB::Market
+end # module SportDb::Market
