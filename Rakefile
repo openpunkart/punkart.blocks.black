@@ -11,7 +11,7 @@ Hoe.spec 'sportdb-market' do
   self.summary = 'sportdb plugin for market quotes (odds, etc)'
   self.description = summary
 
-  self.urls    = ['https://github.com/openbookie/sport.db-market']
+  self.urls    = ['https://github.com/openbookie/sport.db.market']
   
   self.author  = 'Gerald Bauer'
   self.email   = 'opensport@googlegroups.com'
@@ -27,6 +27,12 @@ Hoe.spec 'sportdb-market' do
   }
 
 end
+
+
+
+############
+# fix:
+# todo: move build to  sport.db.build repo
 
 
 namespace :dev do

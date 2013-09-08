@@ -34,55 +34,16 @@ module SportDb::Market
     CreateDb.up
   end
 
-  def self.fixtures_rb  # all builtin ruby fixtures; helper for covenience
-    ['services',
-     'at/2012_13/bl',
-     'at/2012_13/cup',
-     'cl/2012_13/cl',
-    ## 'euro/2012'
-    ]
-  end
 
-  def self.load_all( include_path )
-    load( fixtures_rb, include_path )
-  end
-
-  def self.fixtures_txt
-    [['betathome', 'at.2012/13',       'at/2012_13/bl_betathome'],
-     ['tipp3',     'at.2012/13',       'at/2012_13/bl_tipp3'],
-     ['betathome', 'at.cup.2012/13',   'at/2012_13/cup_betathome'],
-     ['tipp3',     'at.cup.2012/13',   'at/2012_13/cup_tipp3'],
-     ['betathome', 'cl.2012/13',       'cl/2012_13/cl_betathome'],
-     ['tipp3',     'cl.2012/13',       'cl/2012_13/cl_tipp3'],
-  ##   ['tipico',    'euro.2012',        'euro/2012_tipico'],
-  ##   ['tipp3',     'euro.2012',        'euro/2012_tipp3' ],
-     ['tipp3',     'world.quali.europe.2014', 'world/quali_tipp3']]
-  end
-
-  def self.read_all( include_path )
-    read( fixtures_txt, include_path )
-  end
-
-
-  # load built-in (that is, bundled within the gem) named seeds
-  # - pass in an array of seed names e.g. [ 'cl/teams', 'cl/2012_13/cl' ] etc.
-
-  def self.load( ary, include_path )
-    loader = Loader.new( include_path )
-    ary.each do |name|
-      loader.load( name )
-    end
-  end
-
-  # load built-in (that is, bundled within the gem) named plain text seeds
-  # - pass in an array of pairs of event/seed names e.g. [['at.2012/13', 'at/2012_13/bl'], ['cl.2012/13', 'cl/2012_13/cl']] etc.
-
-  def self.read( ary, include_path )
+  def self.read_setup( setup, include_path )
     reader = Reader.new( include_path )
-    ary.each do |rec|
-      reader.load( rec[0], rec[1], rec[2] ) # service_key, event_key, name
-    end
+    reader.load_setup( setup )
   end
+
+  def self.read_all( include_path )   # convenience helper
+    read_setup( 'setups/all', include_path )
+  end
+
 
   class Deleter
     ## todo: move into its own file???    

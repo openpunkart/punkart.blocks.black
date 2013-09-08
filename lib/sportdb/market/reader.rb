@@ -12,12 +12,86 @@ class Reader
   include SportDb::Models
 
   attr_reader :include_path
-  
+  attr_reader :loader
+
   def initialize( include_path )
     @include_path = include_path
+    @loader       = Loader.new( include_path )
   end
 
-  def load( service_key, event_key, name )
+  def load_setup( name )
+    path = "#{include_path}/#{name}.yml"
+
+    logger.info "parsing data '#{name}' (#{path})..."
+
+    reader = FixtureReader.new( path )
+
+    reader.each do |fixture_name|
+      load( fixture_name )
+    end
+  end # method load_setup
+
+
+  def load( name )   # convenience helper for all-in-one reader
+
+    logger.debug "enter load( name=>>#{name}<<, include_path=>>#{include_path}<<)"
+    
+    # check if name exits if extension .rb  ##
+    #  if yes, use loader (for ruby code)
+    #  otherwise assume
+    #  plain text match/game quotes
+    
+    ## todo: add sub for !/ prefix in name
+
+    path = "#{@include_path}/#{name}.rb"
+    
+    if File.exist?( path )   # if it's ruby use (code) loader
+      loader.load( name )
+    else
+      meta = fetch_quotes_meta( name )
+ 
+      service_key = meta['service_key']
+      event_key   = "#{meta['league_key']}.#{meta['season_key']}"
+      
+      load_quotes( service_key, event_key, name )
+    end
+
+  end  # method load
+
+
+
+  def fetch_quotes_meta( name )
+    # get/fetch/find event from yml file
+
+    ## todo/fix: use h = HashFile.load( path ) or similar instead of HashReader!!
+
+    ## todo/fix: add option for not adding prop automatically?? w/ HashReaderV2
+
+    reader = HashReaderV2.new( name, include_path )
+
+    attribs = {}
+
+    reader.each_typed do |key, value|
+
+      ## puts "processing event attrib >>#{key}<< >>#{value}<<..."
+
+      if key == 'league'
+        attribs[ 'league_key' ] = value.to_s.strip
+      elsif key == 'season'
+        attribs[ 'season_key' ] = value.to_s.strip
+      elsif key == 'service'
+        attribs[ 'service_key' ] = value.to_s.strip
+      else
+        puts "*** warn: skipping unknown quote config/meta key >#{key}< w/ value >#{value}<"
+      end
+    end # each key,value
+    
+    attribs
+  end
+
+
+
+  def load_quotes( service_key, event_key, name )
     path = "#{@include_path}/#{name}.txt"
 
     puts "*** parsing data '#{name}' (#{path})..."
@@ -54,6 +128,30 @@ private
 
 
   include SportDb::FixtureHelpers
+
+
+  def find_handicap!( line )
+    # fix/todo:
+    #   use find_handicap_team1! and
+    #       find_handicap_team2!  ??? why? why not??
+    #   how can we know if the handicap is for team1 or team2
+    #    needs to get fixed; find some
+    
+    # for now ignore handicap  e.g. +1 or +2 or +3 +4 +5
+    
+    regex = /\+(\d)[ \t]+/
+    
+    match = regex.match( line )
+    unless match.nil?
+      value = match[1].to_i
+      puts "   handicap: >#{value}<"
+      
+      line.sub!( regex, ' [HANDICAP] ' )
+
+      return value
+    end
+    nil # if no handicap found
+  end
 
 
   def find_quotes!( line )
@@ -117,9 +215,17 @@ private
         team1_key = find_team1!( line )
         team2_key = find_team2!( line )
 
+        handicap = find_handicap!( line )
+
         quotes = find_quotes!( line )
 
         puts "  line: >#{line}<"
+
+        if quotes.nil?
+          puts 'no quotes found; skipping line'  # skip lines w/o quotes
+          next
+        end
+        
 
 
         ### todo: cache team lookups in hash?
