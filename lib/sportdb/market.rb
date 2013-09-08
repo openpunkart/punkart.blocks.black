@@ -31,7 +31,8 @@ module SportDb::Market
   end
   
   def self.create
-    CreateDb.up
+    CreateDb.new.up
+    # WorldDb::Models::Prop.create!( key: 'db.schema.sport.market.version', value: SportDb::Market::VERSION )
   end
 
 

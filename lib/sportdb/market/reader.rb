@@ -115,8 +115,16 @@ private
     ##
     
     @service = Service.find_by_key!( service_key )
-    @event   = Event.find_by_key!( event_key )
     
+    #### fix:
+    ## for now skip if event not present
+    @event   = Event.find_by_key( event_key )
+    
+    unless @event.present?
+      puts "*** error: event key >>#{event_key}<< not found/present; skip loading quotes"
+      return
+    end
+
     puts "Quote Service #{@service.key} >#{@service.title}<"
     puts "Event #{@event.key} >#{@event.title}<"
     

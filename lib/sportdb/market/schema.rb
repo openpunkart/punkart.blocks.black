@@ -1,17 +1,11 @@
+# encoding: UTF-8
 
 module SportDb::Market
 
 
-class CreateDb
+class CreateDb < ActiveRecord::Migration
 
-## make models available in sportdb module by default with namespace
-#  e.g. lets you use Team instead of Models::Team 
-  include SportDb::Models
-
-
-  def self.up
-  
-    ActiveRecord::Schema.define do
+  def up
 
 create_table :services do |t|  # quote service (e.g. tipp3,tipico,etc.)
   t.string     :title,  :null => false
@@ -47,11 +41,11 @@ create_table :group_quotes do |t|
   t.timestamps
 end
 
-    end # block Schema.define
+  end # method up
 
-    Prop.create!( key: 'db.schema.sport.market.version', value: SportDb::Market::VERSION )
-
-  end # method self.up
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
 
 end # class CreateDb
 
