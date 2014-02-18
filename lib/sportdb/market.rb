@@ -14,7 +14,8 @@ require 'sportdb/market/loader'
 require 'sportdb/market/reader'
 
 
-module SportDb::Market
+module SportDb
+  module Market
 
   def self.banner
     "sportdb-market #{VERSION} on Ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE}) [#{RUBY_PLATFORM}]"
@@ -32,7 +33,7 @@ module SportDb::Market
   
   def self.create
     CreateDb.new.up
-    # WorldDb::Models::Prop.create!( key: 'db.schema.sport.market.version', value: SportDb::Market::VERSION )
+    # WorldDb::Model::Prop.create!( key: 'db.schema.sport.market.version', value: SportDb::Market::VERSION )
   end
 
 
@@ -50,7 +51,7 @@ module SportDb::Market
     ## todo: move into its own file???    
     
     ## make models available in sportdb module by default with namespace
-    #  e.g. lets you use Team instead of Models::Team 
+    #  e.g. lets you use Team instead of Model::Team 
     include SportDb::Models
 
     def run( args=[] )
@@ -70,7 +71,8 @@ module SportDb::Market
     Deleter.new.run
   end # method delete!
 
-end  # module SportDb::Market
+  end # module Market
+end  # module SportDb
 
 
 ## say hello
