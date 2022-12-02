@@ -295,22 +295,22 @@ Moiré №151 & №152
 ### Silhouette
 
 Turn any "true color" punk into a black & white (1-bit)
-silhouette  (using `Image#shilhouette`).
+silhouette  (using [**Image#silhouette**](https://github.com/learnpixelart)).
 Example - Before:
 
-![](i/yeoldpunk0.png)
-![](i/yeoldpunk1.png)
-![](i/yeoldpunk2.png)
-![](i/yeoldpunk3.png)
-![](i/yeoldpunk4.png)
-![](i/yeoldpunk5.png)
-![](i/yeoldpunk6.png)
-![](i/yeoldpunk7.png)
-![](i/yeoldpunk8.png)
-![](i/yeoldpunk9.png)
-![](i/yeoldpunk10.png)
-![](i/yeoldpunk11.png)
-![](i/yeoldpunk12.png)
+![](i/yeoldepunk0.png)
+![](i/yeoldepunk1.png)
+![](i/yeoldepunk2.png)
+![](i/yeoldepunk3.png)
+![](i/yeoldepunk4.png)
+![](i/yeoldepunk5.png)
+![](i/yeoldepunk6.png)
+![](i/yeoldepunk7.png)
+![](i/yeoldepunk8.png)
+![](i/yeoldepunk9.png)
+![](i/yeoldepunk10.png)
+![](i/yeoldepunk11.png)
+![](i/yeoldepunk12.png)
 
 
 After:
