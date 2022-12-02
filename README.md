@@ -292,10 +292,10 @@ Moiré №151 & №152
 ## DIY (Do-It-Yourself) - Yes, You Can! Tips & Tricks To "Auto-Magically" Generate Your Own Black & White (1-Bit) Punks
 
 
-### Silhouette
+### (Shadow Outline) Silhouette
 
 Turn any "true color" punk into a black & white (1-bit)
-silhouette  (using [**Image#silhouette**](https://github.com/learnpixelart)).
+"shadow outline" silhouette  (using [**Image#silhouette**](https://github.com/learnpixelart)).
 Example - The First Ye Olde Matt & John's® Punks:
 
 Before:
@@ -331,6 +331,48 @@ After:
 ![](i/punk11-silhouette.png)
 ![](i/punk12-silhouette.png)
 
+
+### (Pencil Drawing) Sketch
+
+Turn any "true color" punk into a black & white (1-bit)
+"pencil drawing" sketch  (using [**Image#sketch**](https://github.com/learnpixelart)).
+Example - The First Ye Olde Matt & John's® Punks:
+
+Before:
+
+![](i/yeoldepunk0.png)
+![](i/yeoldepunk1.png)
+![](i/yeoldepunk2.png)
+![](i/yeoldepunk3.png)
+![](i/yeoldepunk4.png)
+![](i/yeoldepunk5.png)
+![](i/yeoldepunk6.png)
+![](i/yeoldepunk7.png)
+![](i/yeoldepunk8.png)
+![](i/yeoldepunk9.png)
+![](i/yeoldepunk10.png)
+![](i/yeoldepunk11.png)
+![](i/yeoldepunk12.png)
+
+
+After:
+
+![](i/punk0-sketch.png)
+![](i/punk1-sketch.png)
+![](i/punk2-sketch.png)
+![](i/punk3-sketch.png)
+![](i/punk4-sketch.png)
+![](i/punk5-sketch.png)
+![](i/punk6-sketch.png)
+![](i/punk7-sketch.png)
+![](i/punk8-sketch.png)
+![](i/punk9-sketch.png)
+![](i/punk10-sketch.png)
+![](i/punk11-sketch.png)
+![](i/punk12-sketch.png)
+
+
+Note:  Using the `Image#sketch` special effect / algorithm will double the image size (e.g. 24×24 will become 49×49).
 
 
 
