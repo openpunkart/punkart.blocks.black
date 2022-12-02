@@ -289,6 +289,51 @@ Moiré №151 & №152
 
 
 
+## DIY (Do-It-Yourself) - Yes, You Can! Tips & Tricks To "Auto-Magically" Generate Your Own Black & White (1-Bit) Punks
+
+
+### Silhouette
+
+Turn any "true color" punk into a black & white (1-bit)
+silhouette  (using `Image#shilhouette`).
+Example - Before:
+
+![](i/yeoldpunk0.png)
+![](i/yeoldpunk1.png)
+![](i/yeoldpunk2.png)
+![](i/yeoldpunk3.png)
+![](i/yeoldpunk4.png)
+![](i/yeoldpunk5.png)
+![](i/yeoldpunk6.png)
+![](i/yeoldpunk7.png)
+![](i/yeoldpunk8.png)
+![](i/yeoldpunk9.png)
+![](i/yeoldpunk10.png)
+![](i/yeoldpunk11.png)
+![](i/yeoldpunk12.png)
+
+
+After:
+
+![](i/punk0-silhouette.png)
+![](i/punk1-silhouette.png)
+![](i/punk2-silhouette.png)
+![](i/punk3-silhouette.png)
+![](i/punk4-silhouette.png)
+![](i/punk5-silhouette.png)
+![](i/punk6-silhouette.png)
+![](i/punk7-silhouette.png)
+![](i/punk8-silhouette.png)
+![](i/punk9-silhouette.png)
+![](i/punk10-silhouette.png)
+![](i/punk11-silhouette.png)
+![](i/punk12-silhouette.png)
+
+
+
+
+
+
 
 ## Questions? Comments?
 
