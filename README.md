@@ -296,7 +296,9 @@ Moiré №151 & №152
 
 Turn any "true color" punk into a black & white (1-bit)
 silhouette  (using [**Image#silhouette**](https://github.com/learnpixelart)).
-Example - Before:
+Example - The First Ye Olde Matt & John's® Punks:
+
+Before:
 
 ![](i/yeoldepunk0.png)
 ![](i/yeoldepunk1.png)
