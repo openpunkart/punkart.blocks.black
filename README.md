@@ -1,8 +1,8 @@
 
 
-[Vol. 1 - Heads](https://github.com/cryptopunksnotdead/punks.blocks) ·
-[Vol. 2 - Bodies & More](https://github.com/cryptopunksnotdead/punks.bodies) ·
-[Vol. 3 - Black & White (1-Bit)](https://github.com/cryptopunksnotdead/punks.black)
+[Vol. 1 - Heads](https://github.com/openpunkart/punks.blocks) ·
+[Vol. 2 - Bodies & More](https://github.com/openpunkart/punks.bodies) ·
+[Vol. 3 - Black & White (1-Bit)](https://github.com/openpunkart/punks.black)
 
 
 # Punk Building Block Series Vol. 3 - Black & White (1-Bit)
@@ -375,13 +375,6 @@ After:
 Note:  Using the `Image#sketch` special effect / algorithm will double the image size (e.g. 24×24 will become 49×49).
 
 
-
-
-
-
 ## Questions? Comments?
 
-Post them on the [D.I.Y. Punk (Pixel) Art reddit](https://old.reddit.com/r/DIYPunkArt). Thanks.
-
-
-
+Post them over at the [Help & Support](https://github.com/geraldb/help) page. Thanks.
